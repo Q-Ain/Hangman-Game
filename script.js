@@ -14,12 +14,16 @@ window.onload = function () {
   var lives;             // Lives
   var counter;           // Count correct guesses
   var space;              // Number of spaces in word '-'
+  // added
+  var rounds = 0;
 
   // Get elements
   var showLives = document.getElementById("mylives");
   var showCatagory = document.getElementById("scatagory");
   var getHint = document.getElementById("hint");
   var showClue = document.getElementById("clue");
+  var showRound = document.getElementById("rounds");
+
 
 
 
@@ -76,15 +80,37 @@ window.onload = function () {
   // Show lives
   comments = function () {
     // showLives.innerHTML = "You have " + lives + " lives";
+    nextRound = document.getElementById('next');
+
     if (lives < 1) {
       showLives.innerHTML = "Game Over";
+      nextRound.style.display = 'block';
+    }else{
+      nextRound.style.display = 'none';
     }
     for (var i = 0; i < guesses.length; i++) {
       if (counter + space === guesses.length) {
         showLives.innerHTML = "You Win!";
+        nextRound.style.display = 'block';
+        rounds += 1;
+      }else{
+        nextRound.style.display = 'none';
       }
     }
+
+    if(rounds==5){
+      showRound.innerHTML = "Congratulations! You've guess all the words correctly";
+      round = 0;
+    }else if(rounds > 5) {
+      round = 0;
+    }else{
+      showRound.innerHTML = "Great job! You've guessed " + rounds + "/5 rounds";
+    }
+    
+    
   }
+
+
 
   // Animate man
   var animate = function () {

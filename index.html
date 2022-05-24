@@ -4,8 +4,11 @@
 <head>
     <title>Hang The Man</title>
     <link href="https://fonts.googleapis.com/css?family=Walter+Turncoat" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css"/>
     <script src="script.js"></script>
+    <script src="fireworks.js"></script>
+
 </head>
 
 <body>
@@ -13,7 +16,7 @@
       <div id="navbar">
         <div id="logo">Hang The Man</div>
         <div class="flex-end">
-            <button id="howToPlay">?
+            <button id="howToPlay"><i class="fa fa-question"></i>
                 <!-- The Modal -->
                 <div id="myModal" class="modal">
 
@@ -25,8 +28,8 @@
     
                 </div>
             </button>
-            <button id="reset">Reset</button>
-            <button id="hint">Hint!</button> 
+            <button id="reset"><i class="fa fa-refresh"></i> Reset</button>
+            <button id="hint"><i class="fa fa-lightbulb-o"></i> Hint!</button> 
             
         </div>
       </div>
@@ -49,10 +52,20 @@
     <!-- For the alphabet buttons -->
     <div class="center" id="buttons"></div>
         
-        
+    </div>  
+
+    <!-- For the alphabet buttons -->
+    <a id="next" href= "#"><i class="fa fa-caret-right"></i> Next Round</a>
+    <!-- not sure how to go next round -->
+    <p id="mylives">Outcome of Current Round: </p>
+    <p id="rounds"><i class="fa fa-diamond"></i></p>
+
+    <!-- Animations -->
+    <div class="pyro">
+        <div class="before"></div>
+        <div class="after"></div>
     </div>
-    <p id="mylives">Outcome of Current Round...</p>
- 
+
 </body>
 
 </html>
