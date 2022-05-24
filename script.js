@@ -42,11 +42,11 @@ window.onload = function () {
     // Select Catagory
     var selectCat = function () {
       if (chosenCategory === categories[0]) {
-        catagoryName.innerHTML = "The Chosen Category Is Premier League Football Teams";
+        catagoryName.innerHTML = "Category: Flowers";
       } else if (chosenCategory === categories[1]) {
-        catagoryName.innerHTML = "The Chosen Category Is Films";
+        catagoryName.innerHTML = "Category: Sports";
       } else if (chosenCategory === categories[2]) {
-        catagoryName.innerHTML = "The Chosen Category Is Cities";
+        catagoryName.innerHTML = "Category: Colours";
       }
     }
   
@@ -179,13 +179,14 @@ window.onload = function () {
       }
     }
     
-      
+    // flower, sports, colours - each 5
+
     // Play
     play = function () {
       categories = [
-          ["everton", "liverpool", "swansea", "chelsea", "hull", "manchester-city", "newcastle-united"],
-          ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],
-          ["manchester", "milan", "madrid", "amsterdam", "prague"]
+        ["sunflower", "rose", "lily", "daisy", "lavender"],
+        ["volleyball", "basketball", "golf", "swimming", "tennis"],
+        ["indigo", "cobalt blue", "maroon", "mustard", "vermilion"]
       ];
   
       chosenCategory = categories[Math.floor(Math.random() * categories.length)];
@@ -207,13 +208,13 @@ window.onload = function () {
     play();
     
     // Hint
-  
+          
       hint.onclick = function() {
   
         hints = [
-          ["Based in Mersyside", "Based in Mersyside", "First Welsh team to reach the Premier Leauge", "Owned by A russian Billionaire", "Once managed by Phil Brown", "2013 FA Cup runners up", "Gazza's first club"],
-          ["Science-Fiction horror film", "1971 American action film", "Historical drama", "Anamated Fish", "Giant great white shark"],
-          ["Northern city in the UK", "Home of AC and Inter", "Spanish capital", "Netherlands capital", "Czech Republic capital"]
+          ["has seeds that can be eaten", "fifty of them signifies unconditional love", "symbolises purity and innocence", "a character's name in Micky Mouse Clubhouse", "name of an MRT station in Singapore"],
+          ["Haikyu!!", "Kuroko no Basuke", "Birdie Wing", "Free!", "Rafael Nadal"],
+          ["a colour in a rainbow", "Co + colour of ocean", "part of a bands name", "condiment", "a city name in Pokemon"]
       ];
   
       var catagoryIndex = categories.indexOf(chosenCategory);
