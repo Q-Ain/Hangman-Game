@@ -1,4 +1,5 @@
 # Hangman-Game
-# Pre-requisites:
-Node.js Version >= v14.18.0
-If you don't have Node.js on your computer, you can download it at https://nodejs.org/en/download/
+# How to run
+1) Clone the repository to GitHub
+2) In browser (eg. Google Chrome), type the path to the location where the index.html of repository is cloned 
+eg. C:/Users/your_name/Documents/GitHub/Hangman-Game/index.html

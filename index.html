@@ -2,31 +2,56 @@
 <html lang="en">
 
 <head>
-    <title>Hangman Game</title>
-    <link rel="stylesheet" type="text/css" href="styles.scss"/>
-    <script src="scss.js" type="text/javascript"></script>
+    <title>Hang The Man</title>
+    <link href="https://fonts.googleapis.com/css?family=Walter+Turncoat" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
     <script src="script.js"></script>
 </head>
 
 <body>
-    <div class="wrapper">
-        <h1>Hang The Man</h1>
-        <p>Guess the word by choosing the alphabets or get a clue by clicking the hint button </p>
-    </div>
+    <!-- Display navbar -->
+      <div id="navbar">
+        <div id="logo">Hang The Man</div>
+        <div class="flex-end">
+            <button id="howToPlay">?
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
 
-<div class="center"><p id="catagoryName"></p></div>
-<div id="hold"></div>
-        <div class="center" id="buttons"></div>
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <p>How to play: Guess the word by choosing the alphabets or get a clue by clicking the hint button</p>
+                    <p id="closePopupContent">Click outside of box to close pop-up...</p>
+                </div>
+    
+                </div>
+            </button>
+            <button id="reset">Reset</button>
+            <button id="hint">Hint!</button> 
+            
+        </div>
+      </div>
+
+      <br><br>
+    
+    <!-- Display the stickman -->
+    <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
+
+    <!-- Display category name -->
+    <p id="catagoryName"  class="center"></p>
+    
+    <!-- Display clue -->
+    <p id="clue">Clue: - </p>
+
+    <!-- For the empty dashes -->
+    <br>
+    <div id="hold"></div>
+
+    <!-- For the alphabet buttons -->
+    <div class="center" id="buttons"></div>
         
         
-        </div>
-        <p id="mylives"></p>
-        <p id="clue">Clue -</p>
-        <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
-        <div class="container">
-            <button id="hint">Hint</button>
-            <button id="reset">Play again</button>
-        </div>
+    </div>
+    <p id="mylives">Outcome of Current Round...</p>
  
 </body>
 
