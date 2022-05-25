@@ -3,71 +3,57 @@
 
 <head>
     <title>Hang The Man</title>
-    <link rel="icon" href="images/stickman.png" type="image/icon type">
     <link href="https://fonts.googleapis.com/css?family=Walter+Turncoat" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css"/>
     <script src="script.js"></script>
-    <script src="fireworks.js"></script>
 
+    <!-- For responsiveness: scaling depends on device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
+    <div id="main-container">
     <!-- Display navbar -->
-      <div id="navbar">
-        <div id="logo">Hang The Man</div>
-        <div class="flex-end">
-            <button id="howToPlay"><i class="fa fa-question"></i>
-                <!-- The Modal -->
-                <div id="myModal" class="modal">
+        <div id="navbar">
+            <div id="logo">Hang The Man</div>
+            <div class="flex-end">
+                <button id="howToPlay">?
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
 
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <p>How to play: Guess the word by choosing the alphabets or get a clue by clicking the hint button</p>
-                    <p id="closePopupContent">Click outside of box to close pop-up...</p>
-                </div>
-    
-                </div>
-            </button>
-            <button id="reset"><i class="fa fa-refresh"></i> Reset</button>
-            <button id="hint"><i class="fa fa-lightbulb-o"></i> Hint!</button> 
-            
+                    <!-- Modal content -->
+                        <div class="modal-content">
+                            <p>How to play: Guess the word by choosing the alphabets or get a clue by clicking the hint button</p>
+                            <p id="closePopupContent">Click outside of box to close pop-up...</p>
+                        </div>
+
+                    </div>
+                </button>
+                <button id="reset">Reset</button>
+                <button id="hint">Hint!</button> 
+            </div>
         </div>
-      </div>
 
-      <br><br>
+        <br><br>
     
-    <!-- Display the stickman -->
-    <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
+        <!-- Display the stickman -->
+        <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
 
-    <!-- Display category name -->
-    <p id="catagoryName"  class="center"></p>
+        <!-- Display category name -->
+        <p id="categoryName"  class="center"></p>
     
-    <!-- Display clue -->
-    <p id="clue">Hint: -</p>
+        <!-- Display clue -->
+        <p id="clue">Clue: - </p>
 
-    <!-- For the empty dashes -->
-    <br>
-    <div id="hold"></div>
+        <!-- For the empty dashes -->
+        <br>
+        <div id="hold"></div>
 
-    <!-- For the alphabet buttons -->
-    <div class="center" id="buttons"></div>
-        
-    </div>  
+        <!-- For the alphabet buttons -->
+        <div class="center" id="buttons"></div>
 
-    <!-- For the alphabet buttons -->
-    <!-- <a id="next" href= "#"><i class="fa fa-caret-right"></i> Next Round</a> -->
-
-    <!-- not sure how to go next round -->
-    <p id="myrounds"></p>
-    <!-- <p id="rounds">You've guessed 0/5 rounds <i class="fa fa-diamond"></i></p> -->
-
-    <!-- Animations -->
-    <div class="pyro">
-        <div class="before"></div>
-        <div class="after"></div>
+        <p id="mylives">Outcome of Current Round...</p> 
     </div>
-
 </body>
 
 </html>
