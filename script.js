@@ -5,21 +5,22 @@ window.onload = function () {
     't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
   var categories;         // Array of topics
-  var chosenCategory;     // Selected catagory
-  // var getHint;          // Word getHint
+  var chosenCategory;     // Selected category
+  var getHint;          // Word getHint
   var word;              // Selected word
-  var guess;             // guess
+  var guess;             // Geuss
   var guesses = [];      // Stored guesses
   var lives;             // Lives
   var counter;           // Count correct guesses
   var space;              // Number of spaces in word '-'
-  // added
-  var numRounds;
-  var correctWord;
 
   // Get elements
-  var showRound = document.getElementById("myrounds");
+  var showLives = document.getElementById("mylives");
+  var showCatagory = document.getElementById("scategory");
+  var getHint = document.getElementById("hint");
   var showClue = document.getElementById("clue");
+
+
 
   // create alphabet ul
   var buttons = function () {
@@ -41,11 +42,11 @@ window.onload = function () {
   // Select Catagory
   var selectCat = function () {
     if (chosenCategory === categories[0]) {
-      catagoryName.innerHTML = "Category: Flowers";
+      categoryName.innerHTML = "Category: Flowers";
     } else if (chosenCategory === categories[1]) {
-      catagoryName.innerHTML = "Category: Sports";
+      categoryName.innerHTML = "Category: Sports";
     } else if (chosenCategory === categories[2]) {
-      catagoryName.innerHTML = "Category: Colours";
+      categoryName.innerHTML = "Category: Colours";
     }
   }
 
@@ -73,13 +74,13 @@ window.onload = function () {
 
   // Show lives
   comments = function () {
+    // showLives.innerHTML = "You have " + lives + " lives";
     if (lives < 1) {
-      showRound.innerHTML = "Game Over";
+      showLives.innerHTML = "Game Over";
     }
-
     for (var i = 0; i < guesses.length; i++) {
       if (counter + space === guesses.length) {
-        correctWord = true;
+        showLives.innerHTML = "You Win!";
       }
     }
 
@@ -199,16 +200,16 @@ window.onload = function () {
   // OnClick Function
   check = function () {
     list.onclick = function () {
-      var guess = (this.innerHTML);
+      var geuss = (this.innerHTML);
       this.setAttribute("class", "active");
       this.onclick = null;
       for (var i = 0; i < word.length; i++) {
-        if (word[i] === guess) {
-          guesses[i].innerHTML = guess;
+        if (word[i] === geuss) {
+          guesses[i].innerHTML = geuss;
           counter += 1;
         }
       }
-      var j = (word.indexOf(guess));
+      var j = (word.indexOf(geuss));
       if (j === -1) {
         lives -= 1;
         comments();
@@ -237,9 +238,6 @@ window.onload = function () {
     lives = 10;
     counter = 0;
     space = 0;
-    numRounds = 0; 
-    showClue.innerHTML = "";
-    showRound.innerHTML = "You've guessed 0/5 rounds";
     result();
     comments();
     selectCat();
@@ -252,14 +250,14 @@ window.onload = function () {
   hint.onclick = function () {
 
     hints = [
-      ["has seeds that can be eaten", "fifty of them signifies unconditional love", "a song by Alan Walker", "a character in Micky Mouse Clubhouse", "an MRT station in Singapore"],
+      ["has seeds that can be eaten", "fifty of them signifies unconditional love", "symbolises purity and innocence", "a character's name in Micky Mouse Clubhouse", "name of an MRT station in Singapore"],
       ["Haikyu!!", "Kuroko no Basuke", "Birdie Wing", "Free!", "Rafael Nadal"],
-      ["colour in a rainbow", "water + sea", "part of a band's name", "condiment", "name of a city in Pokemon"]
+      ["a colour in a rainbow", "water + sea", "part of a bands name", "condiment", "a city name in Pokemon"]
     ];
 
-    var catagoryIndex = categories.indexOf(chosenCategory);
+    var categoryIndex = categories.indexOf(chosenCategory);
     var hintIndex = chosenCategory.indexOf(word);
-    showClue.innerHTML = "Hint: " + hints[catagoryIndex][hintIndex];
+    showClue.innerHTML = "Clue: " + hints[categoryIndex][hintIndex];
   };
 
   // Reset
@@ -273,15 +271,22 @@ window.onload = function () {
 
   // ? How To Play
   // Get the modal
-  var modal = document.getElementById("myModal");
+var modal = document.getElementById("myModal");
 
-  // Get the button that opens the modal
-  var btn = document.getElementById("howToPlay");
+// Get the button that opens the modal
+var btn = document.getElementById("howToPlay");
 
-  // When the user clicks on the button, open the modal
-  btn.onclick = function () {
-    modal.style.display = "block";
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
+}
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
