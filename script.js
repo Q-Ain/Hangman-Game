@@ -1,4 +1,3 @@
-
 window.onload = function () {
 
   var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
@@ -7,25 +6,20 @@ window.onload = function () {
 
   var categories;         // Array of topics
   var chosenCategory;     // Selected catagory
-  var getHint;          // Word getHint
+  // var getHint;          // Word getHint
   var word;              // Selected word
-  var guess;             // Geuss
+  var guess;             // guess
   var guesses = [];      // Stored guesses
   var lives;             // Lives
   var counter;           // Count correct guesses
   var space;              // Number of spaces in word '-'
   // added
-  var rounds = 0;
+  var numRounds;
+  var correctWord;
 
   // Get elements
-  var showLives = document.getElementById("mylives");
-  var showCatagory = document.getElementById("scatagory");
-  var getHint = document.getElementById("hint");
+  var showRound = document.getElementById("myrounds");
   var showClue = document.getElementById("clue");
-  var showRound = document.getElementById("rounds");
-
-
-
 
   // create alphabet ul
   var buttons = function () {
@@ -79,38 +73,58 @@ window.onload = function () {
 
   // Show lives
   comments = function () {
-    // showLives.innerHTML = "You have " + lives + " lives";
-    nextRound = document.getElementById('next');
-
     if (lives < 1) {
-      showLives.innerHTML = "Game Over";
-      nextRound.style.display = 'block';
-    }else{
-      nextRound.style.display = 'none';
+      showRound.innerHTML = "Game Over";
     }
+
     for (var i = 0; i < guesses.length; i++) {
       if (counter + space === guesses.length) {
-        showLives.innerHTML = "You Win!";
-        nextRound.style.display = 'block';
-        rounds += 1;
-      }else{
-        nextRound.style.display = 'none';
+        correctWord = true;
       }
     }
 
-    if(rounds==5){
-      showRound.innerHTML = "Congratulations! You've guess all the words correctly";
-      round = 0;
-    }else if(rounds > 5) {
-      round = 0;
-    }else{
-      showRound.innerHTML = "Great job! You've guessed " + rounds + "/5 rounds";
+    if (correctWord === true) {
+      numRounds += 1;
+        // each time win, change to next round
+        if (numRounds == 5) {
+          showRound.innerHTML = "Congratulations! You've guess all the words correctly " + numRounds;
+          numRounds = 0;
+        } else if (numRounds > 5) {
+          numRounds = 0;
+        } else {
+          showRound.innerHTML = "Great job! You've guessed " + numRounds + "/5 rounds";
+
+          // clear for next round
+          correct.parentNode.removeChild(correct);
+          letters.parentNode.removeChild(letters);
+          showClue.innerHTML = "";
+          context.clearRect(0, 0, 400, 400);
+
+          categories = [
+            ["sunflower", "rose", "lily", "daisy", "lavender"],
+            ["volleyball", "basketball", "golf", "swimming", "tennis"],
+            ["indigo", "aquamarine", "maroon", "mustard", "vermilion"]
+          ];
+      
+          chosenCategory = categories[Math.floor(Math.random() * categories.length)];
+          word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
+          word = word.replace(/\s/g, "-");
+          console.log(word);
+          buttons();
+      
+          guesses = [];
+          lives = 10;
+          counter = 0;
+          space = 0;
+          result();
+          selectCat();
+          canvas();
+        }
+        // console.log(numRounds);
     }
-    
-    
+
+    correctWord = false; 
   }
-
-
 
   // Animate man
   var animate = function () {
@@ -185,16 +199,16 @@ window.onload = function () {
   // OnClick Function
   check = function () {
     list.onclick = function () {
-      var geuss = (this.innerHTML);
+      var guess = (this.innerHTML);
       this.setAttribute("class", "active");
       this.onclick = null;
       for (var i = 0; i < word.length; i++) {
-        if (word[i] === geuss) {
-          guesses[i].innerHTML = geuss;
+        if (word[i] === guess) {
+          guesses[i].innerHTML = guess;
           counter += 1;
         }
       }
-      var j = (word.indexOf(geuss));
+      var j = (word.indexOf(guess));
       if (j === -1) {
         lives -= 1;
         comments();
@@ -223,6 +237,9 @@ window.onload = function () {
     lives = 10;
     counter = 0;
     space = 0;
+    numRounds = 0; 
+    showClue.innerHTML = "";
+    showRound.innerHTML = "You've guessed 0/5 rounds";
     result();
     comments();
     selectCat();
@@ -235,14 +252,14 @@ window.onload = function () {
   hint.onclick = function () {
 
     hints = [
-      ["has seeds that can be eaten", "fifty of them signifies unconditional love", "symbolises purity and innocence", "a character's name in Micky Mouse Clubhouse", "name of an MRT station in Singapore"],
+      ["has seeds that can be eaten", "fifty of them signifies unconditional love", "a song by Alan Walker", "a character in Micky Mouse Clubhouse", "an MRT station in Singapore"],
       ["Haikyu!!", "Kuroko no Basuke", "Birdie Wing", "Free!", "Rafael Nadal"],
-      ["a colour in a rainbow", "water + sea", "part of a bands name", "condiment", "a city name in Pokemon"]
+      ["colour in a rainbow", "water + sea", "part of a band's name", "condiment", "name of a city in Pokemon"]
     ];
 
     var catagoryIndex = categories.indexOf(chosenCategory);
     var hintIndex = chosenCategory.indexOf(word);
-    showClue.innerHTML = "Clue: " + hints[catagoryIndex][hintIndex];
+    showClue.innerHTML = "Hint: " + hints[catagoryIndex][hintIndex];
   };
 
   // Reset
@@ -256,22 +273,22 @@ window.onload = function () {
 
   // ? How To Play
   // Get the modal
-var modal = document.getElementById("myModal");
+  var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-var btn = document.getElementById("howToPlay");
+  // Get the button that opens the modal
+  var btn = document.getElementById("howToPlay");
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  // When the user clicks on the button, open the modal
+  btn.onclick = function () {
+    modal.style.display = "block";
   }
-}
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
 
   // When the user scrolls the page, execute myFunction
   window.onscroll = function () { stickyNavbarFunction() };
