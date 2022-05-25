@@ -17,51 +17,39 @@
         <div id="logo">Hang The Man</div>
         <div class="flex-end">
             <button id="howToPlay"><i class="fa fa-question"></i>
-                <!-- The Modal -->
+                <!-- Pop-up -->
                 <div id="myModal" class="modal">
-
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <p>How to play: Guess the word by choosing the alphabets or get a clue by clicking the hint button</p>
-                    <p id="closePopupContent">Click outside of box to close pop-up...</p>
-                </div>
-    
+                    <!-- Pop-up content -->
+                    <div class="modal-content">
+                        <p>How to play: Guess the word by choosing the alphabets or get a clue by clicking the hint button</p>
+                        <p id="closePopupContent">Click outside of box to close pop-up...</p>
+                    </div>
                 </div>
             </button>
             <button id="reset"><i class="fa fa-refresh"></i> Reset</button>
-            <button id="hint"><i class="fa fa-lightbulb-o"></i> Hint!</button> 
-            
+            <button id="hint"><i class="fa fa-lightbulb-o"></i> Hint</button> 
         </div>
       </div>
 
       <br><br>
     
-    <!-- Display the stickman -->
-    <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
+        <!-- Display the stickman -->
+        <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
 
-    <!-- Display category name -->
-    <p id="catagoryName"  class="center"></p>
-    
-    <!-- Display clue -->
-    <p id="clue">Hint: -</p>
-
-    <!-- For the empty dashes -->
-    <br>
-    <div id="hold"></div>
-
-    <!-- For the alphabet buttons -->
-    <div class="center" id="buttons"></div>
+        <!-- Display category name -->
+        <p id="categoryName"  class="center"></p>
         
-    </div>  
+        <!-- Display clue -->
+        <p id="clue"></p>
 
-    <!-- For the alphabet buttons -->
-    <!-- <a id="next" href= "#"><i class="fa fa-caret-right"></i> Next Round</a> -->
+        <!-- For the empty dashes -->
+        <br>
+        <div id="hold"></div>
 
-    <!-- not sure how to go next round -->
-    <p id="myrounds"></p>
-    <!-- <p id="rounds">You've guessed 0/5 rounds <i class="fa fa-diamond"></i></p> -->
- 
+        <!-- For the alphabet buttons -->
+        <div class="center" id="buttons"></div>
 
-</body>
-
+        <!-- Display number of rounds -->
+        <p id="myrounds"><i class="fa fa-diamond"></i></p>
+    </body>
 </html>
