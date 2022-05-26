@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css"/>
     <script src="script.js"></script>
-
+    <!-- For responsiveness: scaling depends on device screen (viewport) width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <!-- Display navbar -->
-      <div id="navbar">
+    <div id="navbar">
         <div id="logo">Hang The Man</div>
         <div class="flex-end">
+            <!-- ? button-->
             <button id="howToPlay"><i class="fa fa-question"></i>
                 <!-- Pop-up -->
                 <div id="myModal" class="modal">
@@ -29,27 +30,35 @@
             <button id="reset"><i class="fa fa-refresh"></i> Reset</button>
             <button id="hint"><i class="fa fa-lightbulb-o"></i> Hint</button> 
         </div>
-      </div>
+    </div>
 
-      <br><br>
+    <br><br>
     
-        <!-- Display the stickman -->
-        <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
+    <!-- To place the main elements side by side -->
+    <div class="row">
+        <div class="column left">
+            <!-- Category name -->
+            <p id="categoryName"  class="center"></p>
+          
+            <!-- Clue -->
+            <p id="clue">Clue: - </p>
+        </div>
+        <div class="column middle">
+            <!-- Stickman -->
+            <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
 
-        <!-- Display category name -->
-        <p id="categoryName"  class="center"></p>
-        
-        <!-- Display clue -->
-        <p id="clue"></p>
+            <!-- Empty dashes -->
+            <div id="hold"></div>
 
-        <!-- For the empty dashes -->
-        <br>
-        <div id="hold"></div>
+            <!-- Alphabet buttons -->
+            <div class="center" id="buttons"></div>
+        </div>
 
-        <!-- For the alphabet buttons -->
-        <div class="center" id="buttons"></div>
+        <div class="column right">
+            <!-- Number of rounds won out of 5 -->
+            <p id="myrounds"><i class="fa fa-diamond"></i></p>
+        </div>
+    </div>
+</body>
 
-        <!-- Display number of rounds -->
-        <p id="myrounds"><i class="fa fa-diamond"></i></p>
-    </body>
 </html>
