@@ -78,7 +78,8 @@ window.onload = function () {
   // Display rounds
   comments = function () {
     if (lives < 1) {
-      showRound.innerHTML = "Game Over. Press reset to play again...";
+      // showRound.innerHTML = "Game Over. Press reset to play again...";
+      window.location.replace("lose.html");
     }
 
     for (var i = 0; i < guesses.length; i++) {
@@ -91,7 +92,7 @@ window.onload = function () {
       numRounds += 1;
       // each time win, change to next round
       if (numRounds == 5) {
-        showRound.innerHTML = "Congratulations! You've guess all the words correctly " + numRounds;
+        // showRound.innerHTML = "Congratulations! You've guess all the words correctly " + numRounds;
         numRounds = 0;
         window.location.replace("win.html");
       } else if (numRounds > 5) {

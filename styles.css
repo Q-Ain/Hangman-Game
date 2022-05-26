@@ -51,6 +51,7 @@ p {
     color: #f2f2f2;
     text-align: center;
     text-decoration: none;
+    font-family: "Walter Turncoat", cursive; 
 
     border: outset 4px rgba(255, 255, 255, 0.212);
     border-radius: 5px;
