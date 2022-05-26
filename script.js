@@ -4,16 +4,18 @@ window.onload = function () {
     'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
     't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-  var categories;         // Array of topics
-  var chosenCategory;     // Selected category
-  var word;              // Selected word
-  var guess;             // guess
-  var guesses = [];      // Stored guesses
-  var lives;             // Lives
-  var counter;           // Count correct guesses
-  var space;              // Number of spaces in word '-'
-  var numRounds;
-  var correctWord;
+  var categories; // Array of topics
+  var chosenCategory; // Selected category
+  var guess; // guess
+  var guesses = []; // Stored guesses
+  var lives; // Lives
+  var counter; // Count correct guesses
+  var space; // Number of spaces in word '-'
+  var numRounds; // Track number of rounds
+  var word;  // Selected word
+  var correctWord; // Check if the word is guessed correctly (boolean)
+  var wordsUsedArr = []; // Store words already used
+  var wordUsed; // Check if selected word was used
 
   // Get elements
   var showRound = document.getElementById("myrounds");
@@ -44,6 +46,10 @@ window.onload = function () {
       categoryName.innerHTML = "Category: Sports";
     } else if (chosenCategory === categories[2]) {
       categoryName.innerHTML = "Category: Colours";
+    } else if (chosenCategory === categories[3]) {
+      categoryName.innerHTML = "Category: Countries";
+    } else if (chosenCategory === categories[4]) {
+      categoryName.innerHTML = "Category: Fruits";
     }
   }
 
@@ -83,44 +89,63 @@ window.onload = function () {
 
     if (correctWord === true) {
       numRounds += 1;
-        // each time win, change to next round
-        if (numRounds == 5) {
-          showRound.innerHTML = "Congratulations! You've guess all the words correctly " + numRounds;
-          numRounds = 0;
-          window.location.replace("win.html");
-        } else if (numRounds > 5) {
-          numRounds = 0;
-        } else {
-          showRound.innerHTML = "Great job! You've guessed " + numRounds + "/5 rounds";
-          // clear for next round
-          correct.parentNode.removeChild(correct);
-          letters.parentNode.removeChild(letters);
-          showClue.innerHTML = "";
-          context.clearRect(0, 0, 400, 400);
+      // each time win, change to next round
+      if (numRounds == 5) {
+        showRound.innerHTML = "Congratulations! You've guess all the words correctly " + numRounds;
+        numRounds = 0;
+        window.location.replace("win.html");
+      } else if (numRounds > 5) {
+        numRounds = 0;
+      } else {
+        showRound.innerHTML = "Great job! You've guessed " + numRounds + "/5 rounds";
+        // clear for next round
+        correct.parentNode.removeChild(correct);
+        letters.parentNode.removeChild(letters);
+        showClue.innerHTML = "";
+        context.clearRect(0, 0, 400, 400); 
+        randomWords();
+        buttons();
 
-          categories = [
-            ["sunflower", "rose", "lily", "daisy", "lavender"],
-            ["volleyball", "basketball", "golf", "swimming", "tennis"],
-            ["indigo", "aquamarine", "maroon", "mustard", "vermilion"]
-          ];
-      
-          chosenCategory = categories[Math.floor(Math.random() * categories.length)];
-          word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
-          word = word.replace(/\s/g, "-");
-          console.log(word);
-          buttons();
-      
-          guesses = [];
-          lives = 10;
-          counter = 0;
-          space = 0;
-          result();
-          selectCat();
-          canvas();
-        }
+        guesses = [];
+        lives = 10;
+        counter = 0;
+        space = 0;
+        result();
+        selectCat();
+        canvas();
+      }
     }
 
-    correctWord = false; 
+    correctWord = false;
+  }
+
+  randomWords = function () {
+    categories = [
+      ["sunflower", "rose", "lily", "daisy", "lavender"],
+      ["volleyball", "basketball", "golf", "swimming", "tennis"],
+      ["indigo", "aquamarine", "maroon", "mustard", "vermilion"], 
+      ["bolivia", "iceland", "mexico", "croatia", "egypt"], 
+      ["lychee", "lemon", "pineapple", "raspberry", "plum"]
+    ];
+
+    wordUsed = true;
+
+    while (wordUsed === true) { 
+      chosenCategory = categories[Math.floor(Math.random() * categories.length)];
+      word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
+      word = word.replace(/\s/g, "-");
+
+      wordUsed = false;
+      for (let i = 0; i < wordsUsedArr.length; i++) {
+        if (word === wordsUsedArr[i]) {
+          wordUsed = true;
+        }
+      }
+
+      if(wordUsed === false) {
+        wordsUsedArr[numRounds] = word;
+      }
+    }
   }
 
   // Animate man
@@ -217,23 +242,15 @@ window.onload = function () {
 
   // Play
   play = function () {
-    categories = [
-      ["sunflower", "rose", "lily", "daisy", "lavender"],
-      ["volleyball", "basketball", "golf", "swimming", "tennis"],
-      ["indigo", "aquamarine", "maroon", "mustard", "vermilion"]
-    ];
-
-    chosenCategory = categories[Math.floor(Math.random() * categories.length)];
-    word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
-    word = word.replace(/\s/g, "-");
-    console.log(word);
+    wordsUsedArr = []; // clear array
+    randomWords();
     buttons();
 
     guesses = [];
     lives = 10;
     counter = 0;
     space = 0;
-    numRounds = 0; 
+    numRounds = 0;
     showClue.innerHTML = "";
     showRound.innerHTML = "You've guessed 0/5 rounds";
     result();
@@ -250,7 +267,9 @@ window.onload = function () {
     hints = [
       ["has seeds that can be eaten", "fifty of them signifies unconditional love", "a song by Alan Walker", "a character in Mickey Mouse Clubhouse", "an MRT station in Singapore"],
       ["Haikyu!!", "Kuroko no Basuke", "Birdie Wing", "Free!", "Rafael Nadal"],
-      ["colour in a rainbow", "water + sea", "part of a band's name", "condiment", "name of a city in Pokemon"]
+      ["colour in a rainbow", "water + sea", "part of a band's name", "condiment", "name of a city in Pokemon"],
+      ["Salar de Uyuni salt flat", "Blue Lagoon", "Chichen-Itza", "Dubrovnik Old Town", "the Great Sphinx"],
+      ["litchi chinensis", "I wonder how, I wonder why...", "PPAP", "_ Pi", "Sugar _ Princess"]
     ];
 
     var categoryIndex = categories.indexOf(chosenCategory);
@@ -286,8 +305,3 @@ window.onload = function () {
     }
   }
 }
-
-// Hide answer from being displayed in inspect console
-console.log = function () { }
-
-
