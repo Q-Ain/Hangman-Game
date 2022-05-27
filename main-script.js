@@ -50,6 +50,12 @@ window.onload = function () {
       categoryName.innerHTML = "Category: Countries";
     } else if (chosenCategory === categories[4]) {
       categoryName.innerHTML = "Category: Fruits";
+    } else if (chosenCategory === categories[5]) {
+      categoryName.innerHTML = "Category: Dance Styles";
+    } else if (chosenCategory === categories[6]) {
+      categoryName.innerHTML = "Category: Animals";
+    } else if (chosenCategory === categories[7]) {
+      categoryName.innerHTML = "Category: Fashion Styles";
     }
   }
 
@@ -78,7 +84,6 @@ window.onload = function () {
   // Display rounds
   comments = function () {
     if (lives < 1) {
-      // showRound.innerHTML = "Game Over...";
       window.location.replace("lose.html");
     }
 
@@ -92,7 +97,6 @@ window.onload = function () {
       numRounds += 1;
       // each time win, change to next round
       if (numRounds == 5) {
-        // showRound.innerHTML = "Congratulations! You've guessed all the words correctly " + numRounds;
         numRounds = 0;
         window.location.replace("win.html");
       } else if (numRounds > 5) {
@@ -127,7 +131,10 @@ window.onload = function () {
       ["volleyball", "basketball", "golf", "swimming", "tennis"],
       ["indigo", "aquamarine", "maroon", "mustard", "vermilion"], 
       ["bolivia", "iceland", "mexico", "croatia", "egypt"], 
-      ["lychee", "lemon", "pineapple", "raspberry", "plum"]
+      ["lychee", "lemon", "pineapple", "raspberry", "plum"],
+      ["popping", "vogue", "breakdancing", "ballet", "locking"],
+      ["platypus", "roadrunner", "hedgehog", "chipmunk", "giraffe"],
+      ["vintage", "exotic", "bohemian", "elegant", "trendy"]
     ];
 
     wordUsed = true;
@@ -145,7 +152,7 @@ window.onload = function () {
       }
 
       if(wordUsed === false) {
-        wordsUsedArr[numRounds] = word;
+        wordsUsedArr[wordsUsedArr.length] = word;
       }
     }
   }
@@ -268,10 +275,13 @@ window.onload = function () {
 
     hints = [
       ["has seeds that can be eaten", "fifty of them signifies unconditional love", "a song by Alan Walker", "a character in Mickey Mouse Clubhouse", "an MRT station in Singapore"],
-      ["Haikyu!!", "Kuroko no Basuke", "Birdie Wing", "Free!", "Rafael Nadal"],
+      ["Haikyu!!", "Kuroko no Basuke", "Birdie Wing", "Free!", "The Prince of _"],
       ["colour in a rainbow", "water + sea", "part of a band's name", "condiment", "name of a city in Pokemon"],
       ["Salar de Uyuni salt flat", "Blue Lagoon", "Chichen-Itza", "Dubrovnik Old Town", "the Great Sphinx"],
-      ["litchi chinensis", "I wonder how, I wonder why...", "PPAP", "_ Pi", "Sugar _ Princess"]
+      ["litchi chinensis", "I wonder how, I wonder why...", "PPAP", "_ Pi", "Sugar _ Princess"],
+      ["balloon + needle", "magazine", "olympic sport 2024", "Dance of the Little Swans", "closed with key"],
+      ["Perry", "beep beep!", "Sonic", "Alvin, Simon, Theodore", "Melman"],
+      ["old fashion that never goes out of fashion", "wear something no one has ever worn", "hippie style", "refine and glamour", "up to date with current fashion"]
     ];
 
     var categoryIndex = categories.indexOf(chosenCategory);

@@ -62,8 +62,10 @@ html {
   }
   
   button:hover{
-    transition: all 0.5s ease-in-out;
     border: inset 4px rgb(115, 199, 238);
+    color: rgb(255, 255, 255);
+    background: rgba(118, 116, 116, 0.22);
+    transition: all 0.5s ease-in-out;
   }
   
   .top-padding-button {

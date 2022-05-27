@@ -1,0 +1,97 @@
+html {
+  background-image: url(images/green-chalkboard-pic.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  min-height: 100vh;
+}
+
+body {
+  font-family: "Walter Turncoat", cursive; 
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  position:static ;
+    top:40%;
+    width:100%;
+    font-size:4vh;
+    text-align:center;
+    transform:translate ;
+    color:#fff;
+    transform:translateY (-50%);
+}
+
+.center {
+  margin: auto;
+  width: auto;
+}
+
+.top-padding {
+  padding-top: 32vh;
+}
+
+/* Play Again Button */
+.button-div {
+  position: relative;
+}
+
+button {
+  position: static;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Walter Turncoat", cursive; 
+
+  border: outset 4px rgba(255, 255, 255, 0.212);
+  border-radius: 5px;
+  background: none;
+  cursor:pointer;
+  font-size:3vh;
+  padding:14px 18px;
+  width:150px;
+  margin: 10px;
+  outline: none;
+}
+
+button:hover{
+  border: inset 4px rgb(115, 199, 238);
+  color: rgb(255, 255, 255);
+  background: rgba(118, 116, 116, 0.22);
+  transition: all 0.5s ease-in-out;
+}
+
+.top-padding-button {
+  padding-top: 1px;
+}
+
+/* Confetti animation */
+@keyframes confettiRain {
+  0% {
+    opacity: 1;
+    margin-top: -100vh;
+    margin-left: -200px;
+  } 
+  
+  100% {
+    opacity: 1;
+    margin-top: 100vh;
+    margin-left: 200px;
+  }
+}
+
+.confetti {
+  opacity: 0;
+  position: absolute;
+  width: 1rem;
+  height: 1.5rem;
+  transition: 900ms ease;
+  animation: confettiRain 5s infinite;
+}
+
+#confetti-wrapper {
+   overflow: hidden !important;
+}

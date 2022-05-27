@@ -59,8 +59,10 @@ p {
   }
 
   #navbar button:hover{
-    transition: all 0.5s ease-in-out;
     border: inset 4px rgb(115, 199, 238);
+    color: rgb(255, 255, 255);
+    background: rgba(118, 116, 116, 0.22);
+    transition: all 0.5s ease-in-out;
   }
 
   .flex-end {
@@ -154,11 +156,13 @@ canvas {
   padding-top: 10px;
   cursor: pointer;
   border-radius: 5px;
-  border: solid 1px #fff;
+  border: inset 3px rgba(255, 255, 255, 0.212);
 }
 
 #alphabet li:hover {
-  background: #52b5b5;
+  transition: all 0.2s ease-in-out;
+  border: solid 3px rgb(208, 132, 247);
+  background: rgba(118, 116, 116, 0.357);;
 }
 
 /* Empty dashes */
@@ -188,9 +192,9 @@ canvas {
 }
 
 .active:hover {
-  color: #598e6f;
+  color: rgba(255, 255, 255, 0.994);
   transition: all 0.3s ease-in-out;
-  opacity: 0.4;
+  opacity: 0.2;
   filter: alpha(opacity=40);
 }
 
