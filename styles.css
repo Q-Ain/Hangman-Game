@@ -172,6 +172,7 @@ canvas {
 
 /* Guessing word */
 #my-word {
+  position: static;
   margin: 0;
   display: block;
   padding: 0;
@@ -179,7 +180,6 @@ canvas {
 }
   
 #my-word li {
-  position: relative;
   list-style: none;
   margin: 0;
   display: inline-block;
