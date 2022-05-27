@@ -152,8 +152,6 @@ canvas {
   min-width: 2.5vw;
   height: 8.5vh;
   padding-top: 10px;
-  background: #fff;
-  color: #52b5b5;
   cursor: pointer;
   border-radius: 5px;
   border: solid 1px #fff;
@@ -161,8 +159,6 @@ canvas {
 
 #alphabet li:hover {
   background: #52b5b5;
-  border: solid 1px #fff;
-  color: #fff;
 }
 
 /* Empty dashes */
@@ -187,15 +183,15 @@ canvas {
 }
 
 .active {
-  opacity: 0.4;
-  filter: alpha(opacity=40); 
-  cursor: default;
+  background: #8bab93;
+  color: #598e6f;
 }
 
 .active:hover {
+  color: #598e6f;
   transition: all 0.3s ease-in-out;
   opacity: 0.4;
-  filter: alpha(opacity=40); 
+  filter: alpha(opacity=40);
 }
 
 /* Responsiveness */

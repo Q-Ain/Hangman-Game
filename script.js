@@ -78,7 +78,7 @@ window.onload = function () {
   // Display rounds
   comments = function () {
     if (lives < 1) {
-      // showRound.innerHTML = "Game Over. Press reset to play again...";
+      // showRound.innerHTML = "Game Over...";
       window.location.replace("lose.html");
     }
 
