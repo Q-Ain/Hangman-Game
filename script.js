@@ -92,13 +92,13 @@ window.onload = function () {
       numRounds += 1;
       // each time win, change to next round
       if (numRounds == 5) {
-        // showRound.innerHTML = "Congratulations! You've guess all the words correctly " + numRounds;
+        // showRound.innerHTML = "Congratulations! You've guessed all the words correctly " + numRounds;
         numRounds = 0;
         window.location.replace("win.html");
       } else if (numRounds > 5) {
         numRounds = 0;
       } else {
-        showRound.innerHTML = "Great job! You've guessed " + numRounds + "/5 rounds";
+        showRound.innerHTML = "Great job! You've won " + numRounds + "/5 rounds";
         // clear for next round
         correct.parentNode.removeChild(correct);
         letters.parentNode.removeChild(letters);
@@ -120,6 +120,7 @@ window.onload = function () {
     correctWord = false;
   }
 
+  // Words
   randomWords = function () {
     categories = [
       ["sunflower", "rose", "lily", "daisy", "lavender"],
@@ -253,7 +254,7 @@ window.onload = function () {
     space = 0;
     numRounds = 0;
     showClue.innerHTML = "";
-    showRound.innerHTML = "You've guessed 0/5 rounds";
+    showRound.innerHTML = "You've won 0/5 rounds";
     result();
     comments();
     selectCat();

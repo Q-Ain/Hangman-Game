@@ -32,10 +32,10 @@ p {
   #navbar #logo {
     float: left;
     color: #fff;
-    font-size: 5vh;
+    font-size: 7vh;
     font-weight: bolder;
     margin-left: 2%;
-    margin-top: 2.5vh;
+    margin-top: 3.5vh;
     transition: 0.4s;
   }
   
@@ -71,7 +71,7 @@ p {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; 
-    z-index: 1; 
+    z-index: 10; 
     left: 0;
     top: 0;
     width: 100%; 
@@ -103,22 +103,21 @@ p {
 }
 
 .row {
-  display: flex;
-  margin-top: 10vh;
+  margin-top: 15vh;
   width: 100%;
 }
   
 .column {
-  padding: 10px;
-  flex: 1;
+  float: left;
+  margin-top: 0;
 }
 
 .left, .right {
-  width: 25%;
+  width: 26%;
 }
   
 .middle {
-  width: 50%;
+  width: 48%;
 }
   
 .row:after {
@@ -129,21 +128,15 @@ p {
 
 /* Stickman */
 canvas {
-  color:#fff;
+  color: #fff;
   border: #fff dotted 4px;
-  padding:15px;
-}
-
-/* Empty dashes */
-#hold {
-  margin: 10% 0;
-  position: static;
+  padding: 15px;
 }
 
 /* Alphabet buttons */
 .center {
-  width: 150%;
-  margin-left: -27%;
+  width: 100%;
+  padding: 0px 5px 0px 5px;
 }
 
 #alphabet:after{
@@ -155,21 +148,26 @@ canvas {
 #alphabet li {
   float:left;
   margin: 0 10px 10px 0;
-  list-style:none;
-  min-width:2.5vw;
-  height:8.5vh;
-  padding-top:10px;
-  background:#fff;
-  color:#52b5b5;
-  cursor:pointer;
-  border-radius:5px;
+  list-style: none;
+  min-width: 2.5vw;
+  height: 8.5vh;
+  padding-top: 10px;
+  background: #fff;
+  color: #52b5b5;
+  cursor: pointer;
+  border-radius: 5px;
   border: solid 1px #fff;
 }
 
 #alphabet li:hover {
-  background:#52b5b5;
+  background: #52b5b5;
   border: solid 1px #fff;
-  color:#fff;
+  color: #fff;
+}
+
+/* Empty dashes */
+#hold {
+  margin: 5vh;
 }
 
 /* Guessing word */
@@ -177,7 +175,7 @@ canvas {
   margin: 0;
   display: block;
   padding: 0;
-  display:block;
+  display: block;
 }
   
 #my-word li {
@@ -186,37 +184,47 @@ canvas {
   margin: 0;
   display: inline-block;
   padding: 0 10px;
-  font-size: 5vh;
 }
 
 .active {
-  opacity:0.4;
-  filter:alpha(opacity=40); 
-  cursor:default;
+  opacity: 0.4;
+  filter: alpha(opacity=40); 
+  cursor: default;
 }
 
 .active:hover {
-  transition:all 0.3s ease-in-out;
-  opacity:0.4;
-  filter:alpha(opacity=40); 
-}
-
-/* Number of rounds won */
-#myrounds {
-  margin-top: 0;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.4;
+  filter: alpha(opacity=40); 
 }
 
 /* Responsiveness */
 @media screen and (max-width: 768px) {
+  #navbar {
+    border: 0px;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  #navbar #logo {
+    display: none;
+  }
   #navbar a {
     float: none;
     display: block;
     text-align: left;
   }
   #navbar button {
-    width: 25vw;
-    margin-left: 1vw;
+    width: 25%;
+    margin-left: 2%;
+    display: inline-block;
     font-size: 2.5vh;
+  }
+  #reset-text {
+    display: none;
+  }
+  #hint-text {
+    display: none;
   }
   .modal-content {
     width: 80vw;
@@ -230,7 +238,7 @@ canvas {
   }
   .row {
     flex-direction: column;
-    margin-top: 15vh;
+    margin-top: 3vh;
   }
   .column {
     width: 100%;
@@ -245,6 +253,7 @@ canvas {
   #alphabet li {
     width: 8vw;
     height: 7vh;
+    padding: 0;
   }
   #my-word li {
     font-size: 3vh;

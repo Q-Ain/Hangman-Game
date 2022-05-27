@@ -17,7 +17,7 @@ h1 {
   position:static ;
     top:40%;
     width:100%;
-    font-size:2.1em;
+    font-size:4vh;
     text-align:center;
     transform:translate ;
     color:#fff;
@@ -50,7 +50,7 @@ button {
   border-radius: 5px;
   background: none;
   cursor:pointer;
-  font-size:1.2em;
+  font-size:3vh;
   padding:14px 18px;
   width:150px;
   margin: 10px;
