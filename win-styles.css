@@ -68,6 +68,12 @@ button:hover{
   padding-top: 1px;
 }
 
+@media (min-width: 1024px) {
+  .top-padding {
+    padding: 20% 10vw 0 10vw;
+  }
+}
+
 /* Confetti animation */
 @keyframes confettiRain {
   0% {
