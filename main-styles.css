@@ -51,7 +51,7 @@ p {
     border-radius: 5px;
     background: none;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 4vh;
     width: 15vw;
     min-height: 8vh;
     margin: 20px;
@@ -81,6 +81,7 @@ p {
     overflow: hidden;
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4); 
+    background-size: cover;
   }
   
   .modal-content {
@@ -176,7 +177,6 @@ canvas {
   margin: 0;
   display: block;
   padding: 0;
-  display: block;
 }
   
 #my-word li {
@@ -255,8 +255,8 @@ canvas {
   #navbar button {
     width: 25%;
     margin-left: 2%;
-    font-size: 20px;
-    float: right;
+    display: inline-block;
+    font-size: 2.5vh;
   }
   #reset-text {
     display: none;
