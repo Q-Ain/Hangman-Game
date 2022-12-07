@@ -1,6 +1,5 @@
 # Hangman Project
-This project is build using HTML, CSS and JavaScript.
-The deployment of this project can be viewed through `github-pages` under Environments in the sidebar.
+This project is build using HTML, CSS and JavaScript.  The deployment of this project can be viewed through `github-pages` under Environments in the sidebar.
 
 # Getting Started
 
